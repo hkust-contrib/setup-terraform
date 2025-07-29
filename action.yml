@@ -52,6 +52,7 @@ runs:
         terraform_wrapper: ${{ inputs.terraform_wrapper }}
     - name: Configure Terraform plugin cache
       if: inputs.enable_caching == 'true'
+      shell: bash
       run: |
         echo "TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache" >>"$GITHUB_ENV"
         mkdir --parents "$HOME/.terraform.d/plugin-cache"
